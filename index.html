@@ -64,6 +64,7 @@
         var map = L.map('map', {
             zoomControl:false, maxZoom:26, minZoom:1
         }).fitBounds([[17.86985183452416,-67.17231112935559],[18.02439494404048,-66.8809055832509]]);
+			
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -105,6 +106,16 @@
             primaryAreaUnit: 'sqfeet',
             secondaryAreaUnit: 'sqmiles'
         });
+		// Patrón de líneas azules para Extensión Marina
+		var pattern_ExtensionMarina = new L.StripePattern({
+		    weight: 2,          // grosor de la línea
+		    spaceWeight: 4,     // espacio entre líneas
+		    color: '#ADD8E6',   // azul claro
+		    opacity: 1.0,
+		    angle: 45
+			});
+pattern_ExtensionMarina.addTo(map);
+
         measureControl.addTo(map);
         document.getElementsByClassName('leaflet-control-measure-toggle')[0].innerHTML = '';
         document.getElementsByClassName('leaflet-control-measure-toggle')[0].className += ' fas fa-ruler';
@@ -287,7 +298,8 @@
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 2.0, 
-                fillOpacity: 0,
+				fillPattern: pattern_ExtensionMarina,
+                fillOpacity: 1,
                 interactive: false,
             }
                     break;
