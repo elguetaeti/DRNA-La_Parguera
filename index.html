@@ -18,12 +18,31 @@
             height: 100%;
             padding: 0;
             margin: 0;
-        }
+
+        }/* Logo flotante */
+	#logo-estudios {
+   	position: absolute;
+   	bottom: 10px;
+    	right: 10px;
+    	z-index: 1000;
+}
+#logo-estudios img {
+    height: 55px;
+    width: auto;
+    display: block;
+}
+
         </style>
         <title></title>
     </head>
     <body>
         <div id="map">
+<!-- Logo flotante -->
+	<div id="logo-estudios">
+   	 <a href="https://www.estudiostecnicos.com" target="_blank">
+        <img src="https://estudiostecnicos.com/wp-content/uploads/2021/01/logo-trasnparente.png" alt="Estudios Técnicos Inc.">
+    	</a>
+</div>
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
